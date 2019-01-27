@@ -1,0 +1,21 @@
+1. Manual diagnostics
+
+a) ps (ps -eo pid,euser,ruser,suser,fuser,f,comm,label) <- interesting line)
+
+
+* /sbin/init (systemd) - may start another processes, which we can check later.
+
+* [kthreadd] - this is ok, it spawns threads
+
+* [ksoftirqd] - this is ok, it does something with softirqs.
+
+* [kworker/0:0H] -
+
+
+b) /sbin/init (systemd)
+
+1. iptables
+
+2. tomoyo and others
+
+

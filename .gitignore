@@ -1,0 +1,9 @@
+*.o
+*.mod.c
+*userspace_app
+*.order
+*.ko
+*.cmd
+*Module.symvers
+*.swp
+*tmp_versions
