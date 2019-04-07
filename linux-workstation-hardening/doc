@@ -9,8 +9,28 @@ a) ps (ps -eo pid,euser,ruser,suser,fuser,f,comm,label) <- interesting line)
 
 * [ksoftirqd] - this is ok, it does something with softirqs.
 
-* [kworker/0:0H] -
+* [kworker/0:0H] - it's a kthread which does some delayed works
+			[kworker/%u:??????????] <- what is this??????
+			First %u means CPU number. Rest - idk.
 
+* [rcu_sched] - ??? - something with rcu					TODO TODO
+* [rcu_bh] - ??? - something with rcu						TODO TODO
+* [migration/0] - related to (linux/kernel/stop_machine.c)
+* [lru-add-drain] - something with memory (mm/swap.c)
+* [watchdog/0] - watchdog (kernel/watchdog.c)
+* [cpuhp/0] - something with teardown/setup callbacks on the plugged cpu (kernel/cpu.c)
+* [kdevtmpfs] - tmp filesystem
+* [netns] - used to cleanup on network namespace (net/core/net_namespace.c)
+* [khungtaskd] - used to print info about hanging uninterruptible tasks (kernel/hung_task.c)
+* [oom_reaper] - used somehow for a 'out of memory reaper' (mm/oom_kill.c)
+* [writeback] - ???? (mm/backing-dev.c)						TODO TODO
+* [kcompactd] - kernel daemon for some memory 'compact' (mm/compaction.c)	TODO TODO
+* [ksmd] - KSM daemon (look documentation)
+* [khugepaged]  - somehow pages are not 4k, but i.e. 1GB - daemon.
+* [crypto] - crypto workqueue
+* [kintegrityd] - workqueue, used to call verify I/O something function for bio? block i/o.
+* [bioset] - workqueue, something with bio_alloc_rescue
+* [kblockd] -
 
 b) /sbin/init (systemd)
 
