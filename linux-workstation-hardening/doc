@@ -1,3 +1,9 @@
+Why are you doing this?
+I am doing this to understand at least in some scope processes running under the hood.
+
+Will it increase safety?
+I don't know
+
 1. Manual diagnostics
 
 a) ps (ps -eo pid,euser,ruser,suser,fuser,f,comm,label) <- interesting line)
@@ -30,7 +36,20 @@ a) ps (ps -eo pid,euser,ruser,suser,fuser,f,comm,label) <- interesting line)
 * [crypto] - crypto workqueue
 * [kintegrityd] - workqueue, used to call verify I/O something function for bio? block i/o.
 * [bioset] - workqueue, something with bio_alloc_rescue
-* [kblockd] -
+* [kblockd] - used for unplugging and affects IO latency/throughput
+* [ata_sff] - drivers/ata/libata-sff.c, workqueue, used for dma transfer work, dma finish work. Multiple usage over libata, ata driver etc.
+* [md] - drivers/md/md.c, workqueue, used internally for md driver (extremal usage, not simple task to learn)...
+	 something with RAID's, LVM
+* [edac_poller] - part of drivers/edac/, edac is used for error detection and correction in memory controllers <--- intersting
+* [devfreq_wq] -  * devfreq: Generic Dynamic Voltage and Frequency Scaling (DVFS) Framework for Non-CPU Devices workqueue
+* [watchdogd] - watchdog thread
+* [kswapd0] - mm/vmscan.c, ackground pageout daemon
+* [ecryptfs-kthrea] - fs/ecryptfs/kthread.c
+* [kthrotld] - blk-throttle.c
+* [acpi_thermal_pm] - drivers/acpi/thermal.c
+* [scsi_eh_0] -
+* [] -
+
 
 b) /sbin/init (systemd)
 
